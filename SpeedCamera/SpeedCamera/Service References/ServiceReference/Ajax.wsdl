@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetNewPinGraphics">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetNewPinGraphicsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetNewPinGraphicsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckPinGraphics">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="txt" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckPinGraphicsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckPinGraphicsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewPin">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetNewPinResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetNewPinResult" type="tns:PinManagerQuery" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PinManagerQuery">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Before" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="guid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="After" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GroupTitle" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CheckPin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="guid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="txt" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckPinResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckPinResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveVoite">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GuidObject" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="list" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveVoiteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaveVoiteResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveForum">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GuidControl" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="GuidClassifier" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="GuidObject" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="text" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pin1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pin2" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveForumResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SaveForumResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCache">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NameCache" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="GuidControl" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Param1" />
+            <s:element minOccurs="0" maxOccurs="1" name="Param2" />
+            <s:element minOccurs="0" maxOccurs="1" name="Param3" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCacheResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCacheResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GuidControl" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Param1" />
+            <s:element minOccurs="0" maxOccurs="1" name="Param2" />
+            <s:element minOccurs="0" maxOccurs="1" name="Param3" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetExt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GuidControl" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Param1" />
+            <s:element minOccurs="0" maxOccurs="1" name="Param2" />
+            <s:element minOccurs="0" maxOccurs="1" name="Param3" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetExtResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetExtResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPhotoPages">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GuidControl" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="guid" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Lang" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPhotoPagesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPhotoPagesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddObjectAjax">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GuidClassifier" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="GuidControl" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArrayName" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArrayValue" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddObjectAjaxResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddObjectAjaxResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetNewPinGraphicsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNewPinGraphics" />
+  </wsdl:message>
+  <wsdl:message name="GetNewPinGraphicsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNewPinGraphicsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckPinGraphicsSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckPinGraphics" />
+  </wsdl:message>
+  <wsdl:message name="CheckPinGraphicsSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckPinGraphicsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNewPinSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNewPin" />
+  </wsdl:message>
+  <wsdl:message name="GetNewPinSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNewPinResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckPinSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckPin" />
+  </wsdl:message>
+  <wsdl:message name="CheckPinSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckPinResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveVoiteSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveVoite" />
+  </wsdl:message>
+  <wsdl:message name="SaveVoiteSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveVoiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveForumSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveForum" />
+  </wsdl:message>
+  <wsdl:message name="SaveForumSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveForumResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCacheSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCache" />
+  </wsdl:message>
+  <wsdl:message name="GetCacheSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCacheResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSoapIn">
+    <wsdl:part name="parameters" element="tns:Get" />
+  </wsdl:message>
+  <wsdl:message name="GetSoapOut">
+    <wsdl:part name="parameters" element="tns:GetResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetExtSoapIn">
+    <wsdl:part name="parameters" element="tns:GetExt" />
+  </wsdl:message>
+  <wsdl:message name="GetExtSoapOut">
+    <wsdl:part name="parameters" element="tns:GetExtResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPhotoPagesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPhotoPages" />
+  </wsdl:message>
+  <wsdl:message name="GetPhotoPagesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPhotoPagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddObjectAjaxSoapIn">
+    <wsdl:part name="parameters" element="tns:AddObjectAjax" />
+  </wsdl:message>
+  <wsdl:message name="AddObjectAjaxSoapOut">
+    <wsdl:part name="parameters" element="tns:AddObjectAjaxResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AjaxSoap">
+    <wsdl:operation name="GetNewPinGraphics">
+      <wsdl:input message="tns:GetNewPinGraphicsSoapIn" />
+      <wsdl:output message="tns:GetNewPinGraphicsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPinGraphics">
+      <wsdl:input message="tns:CheckPinGraphicsSoapIn" />
+      <wsdl:output message="tns:CheckPinGraphicsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewPin">
+      <wsdl:input message="tns:GetNewPinSoapIn" />
+      <wsdl:output message="tns:GetNewPinSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPin">
+      <wsdl:input message="tns:CheckPinSoapIn" />
+      <wsdl:output message="tns:CheckPinSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveVoite">
+      <wsdl:input message="tns:SaveVoiteSoapIn" />
+      <wsdl:output message="tns:SaveVoiteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveForum">
+      <wsdl:input message="tns:SaveForumSoapIn" />
+      <wsdl:output message="tns:SaveForumSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCache">
+      <wsdl:input message="tns:GetCacheSoapIn" />
+      <wsdl:output message="tns:GetCacheSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get">
+      <wsdl:input message="tns:GetSoapIn" />
+      <wsdl:output message="tns:GetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExt">
+      <wsdl:input message="tns:GetExtSoapIn" />
+      <wsdl:output message="tns:GetExtSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPhotoPages">
+      <wsdl:input message="tns:GetPhotoPagesSoapIn" />
+      <wsdl:output message="tns:GetPhotoPagesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddObjectAjax">
+      <wsdl:input message="tns:AddObjectAjaxSoapIn" />
+      <wsdl:output message="tns:AddObjectAjaxSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AjaxSoap" type="tns:AjaxSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetNewPinGraphics">
+      <soap:operation soapAction="http://tempuri.org/GetNewPinGraphics" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPinGraphics">
+      <soap:operation soapAction="http://tempuri.org/CheckPinGraphics" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewPin">
+      <soap:operation soapAction="http://tempuri.org/GetNewPin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPin">
+      <soap:operation soapAction="http://tempuri.org/CheckPin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveVoite">
+      <soap:operation soapAction="http://tempuri.org/SaveVoite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveForum">
+      <soap:operation soapAction="http://tempuri.org/SaveForum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCache">
+      <soap:operation soapAction="http://tempuri.org/GetCache" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get">
+      <soap:operation soapAction="http://tempuri.org/Get" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExt">
+      <soap:operation soapAction="http://tempuri.org/GetExt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPhotoPages">
+      <soap:operation soapAction="http://tempuri.org/GetPhotoPages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddObjectAjax">
+      <soap:operation soapAction="http://tempuri.org/AddObjectAjax" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AjaxSoap12" type="tns:AjaxSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetNewPinGraphics">
+      <soap12:operation soapAction="http://tempuri.org/GetNewPinGraphics" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPinGraphics">
+      <soap12:operation soapAction="http://tempuri.org/CheckPinGraphics" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewPin">
+      <soap12:operation soapAction="http://tempuri.org/GetNewPin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPin">
+      <soap12:operation soapAction="http://tempuri.org/CheckPin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveVoite">
+      <soap12:operation soapAction="http://tempuri.org/SaveVoite" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveForum">
+      <soap12:operation soapAction="http://tempuri.org/SaveForum" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCache">
+      <soap12:operation soapAction="http://tempuri.org/GetCache" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get">
+      <soap12:operation soapAction="http://tempuri.org/Get" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExt">
+      <soap12:operation soapAction="http://tempuri.org/GetExt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPhotoPages">
+      <soap12:operation soapAction="http://tempuri.org/GetPhotoPages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddObjectAjax">
+      <soap12:operation soapAction="http://tempuri.org/AddObjectAjax" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Ajax">
+    <wsdl:port name="AjaxSoap" binding="tns:AjaxSoap">
+      <soap:address location="http://mvd.gov.by/Ajax.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AjaxSoap12" binding="tns:AjaxSoap12">
+      <soap12:address location="http://mvd.gov.by/Ajax.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
