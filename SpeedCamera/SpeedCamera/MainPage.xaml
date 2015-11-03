@@ -10,17 +10,18 @@
         <CommandBar>
 
             <AppBarButton Icon="Add" Label="добавить автомобиль" Click="AppBarButton_Click"/>
-            <AppBarButton Icon="Delete" Label="удалить автомобиль" />
+            <AppBarButton Icon="Delete" Label="удалить автомобиль" Click="AppBarButton_Click_1" />
             <AppBarButton Icon="Refresh" Label="обновить" />
+            <AppBarButton  Label="настройки" Icon="Repair" />
 
         </CommandBar>
     </Page.BottomAppBar>
 
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ProgressBar HorizontalAlignment="Left" Height="10" Margin="10,583,0,0" VerticalAlignment="Top" Width="340"/>
+        <ProgressBar Height="10" VerticalAlignment="Bottom" Margin="0,0,0,50"/>
 
-        <Pivot ItemsSource="{Binding Cars}" Title="Автомобили" Margin="0,0,0,83">
+        <Pivot x:Name="pCars" ItemsSource="{Binding Cars}" Title="Автомобили" Margin="0,0,0,83">
             <Pivot.HeaderTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Name}" />
