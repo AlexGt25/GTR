@@ -1,88 +1,140 @@
-﻿namespace GtDev.SpeedCamera
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+
+namespace GtDev.SpeedCamera
 {
     public class Model : BindableBase
     {
-
-
-        //private List<Car> _cars;
-        //public List<Car> Groups
-        //{
-        //    get { return _cars; }
-        //    set { SetProperty(ref _cars, value); }
-        //}
-
-
-        public string Test
+        public Model()
         {
-            get { return GetProperty<string>(); }
-            set { SetProperty(value); }
+            cars.CollectionChanged += Cars_CollectionChanged;
+            cars.Add(new Car());
         }
 
+        private void Cars_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            if (e.Action == NotifyCollectionChangedAction.Add)
+            {
+                foreach (var item in e.NewItems)
+                {
+                    ((Car)item).PropertyChanged += Model_PropertyChanged;
+                }
+            }
+        }
+
+        private void Model_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            this.OnPropertyChanged("Cars");
+        }
+
+        private ObservableCollection<Car> cars = new ObservableCollection<Car>();
+        public ObservableCollection<Car> Cars
+        {
+            get { return cars; }
+            set { SetProperty(ref cars, value); }
+        }
+
+        private string test;
+        public string Test
+        {
+            get { return test; }
+            set { SetProperty(ref test, value); }
+        }
     }
 
-    //public class Car
-    //{
-    //    public string LastName
-    //    {
-    //        get { return appSettings.Contains("LastName") ? (string)appSettings["LastName"] : string.Empty; }
-    //        set
-    //        {
-    //            appSettings["LastName"] = value;
-    //            appSettings.Save();
-    //            NotifyPropertyChanged();
-    //            NotifyPropertyChanged("ParametersReady");
-    //        }
-    //    }
+    public class Car : BindableBase
+    {
+        private string name;
+        private string lastName;
+        private string firstName;
+        private string middleName;
+        private string series;
+        private string number;
 
-    //    public string FirstName
-    //    {
-    //        get { return appSettings.Contains("FirstName") ? (string)appSettings["FirstName"] : string.Empty; }
-    //        set
-    //        {
-    //            appSettings["FirstName"] = value;
-    //            appSettings.Save();
-    //            NotifyPropertyChanged();
-    //            NotifyPropertyChanged("ParametersReady");
-    //        }
-    //    }
+        public string LastName
+        {
+            get
+            {
+                return lastName;
+            }
 
-    //    public string MiddleName
-    //    {
-    //        get { return appSettings.Contains("MiddleName") ? (string)appSettings["MiddleName"] : string.Empty; }
-    //        set
-    //        {
-    //            appSettings["MiddleName"] = value;
-    //            appSettings.Save();
-    //            NotifyPropertyChanged();
-    //            NotifyPropertyChanged("ParametersReady");
-    //        }
-    //    }
+            set
+            {
+                SetProperty(ref lastName, value);
+            }
+        }
 
+        public string FirstName
+        {
+            get
+            {
+                return firstName;
+            }
 
+            set
+            {
+                SetProperty(ref firstName, value);
+            }
+        }
 
-    //    public string Series
-    //    {
-    //        get { return appSettings.Contains("Series") ? (string)appSettings["Series"] : string.Empty; }
-    //        set
-    //        {
-    //            appSettings["Series"] = value;
-    //            appSettings.Save();
-    //            NotifyPropertyChanged();
-    //            NotifyPropertyChanged("ParametersReady");
-    //        }
-    //    }
+        public string MiddleName
+        {
+            get
+            {
+                return middleName;
+            }
 
-    //    public string Number
-    //    {
-    //        get { return appSettings.Contains("Number") ? (string)appSettings["Number"] : string.Empty; }
-    //        set
-    //        {
-    //            appSettings["Number"] = value;
-    //            appSettings.Save();
-    //            NotifyPropertyChanged();
-    //            NotifyPropertyChanged("ParametersReady");
-    //        }
-    //    }
+            set
+            {
+                SetProperty(ref middleName, value);
+            }
+        }
+
+        public string Series
+        {
+            get
+            {
+                return series;
+            }
+
+            set
+            {
+                SetProperty(ref series, value);
+            }
+        }
+
+        public string Number
+        {
+            get
+            {
+                return number;
+            }
+
+            set
+            {
+                SetProperty(ref number, value);
+            }
+        }
+
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+
+            set
+            {
+                SetProperty(ref name, value);
+            }
+        }
+    }
+
+  
 
     //    public bool ParametersReady
     //    {
