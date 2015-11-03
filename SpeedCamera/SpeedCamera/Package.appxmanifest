@@ -3,8 +3,8 @@
   <Identity Name="f312a968-d120-4c77-8c60-c7bc8be42e14" Publisher="CN=ADMINNN" Version="1.0.0.0" />
   <mp:PhoneIdentity PhoneProductId="f312a968-d120-4c77-8c60-c7bc8be42e14" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>SpeedCamera</DisplayName>
-    <PublisherDisplayName>ADMINNN</PublisherDisplayName>
+    <DisplayName>Штрафы за превышение скорости. Беларусь.</DisplayName>
+    <PublisherDisplayName>GT development</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Dependencies>
