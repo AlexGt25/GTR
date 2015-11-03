@@ -6,13 +6,38 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-    <Page.DataContext>
-        <local:Model/>
-    </Page.DataContext>
+    <Page.BottomAppBar>
+        <CommandBar>
+
+            <AppBarButton Icon="Add" Label="добавить автомобиль" Click="AppBarButton_Click"/>
+            <AppBarButton Icon="Delete" Label="удалить автомобиль" />
+            <AppBarButton Icon="Refresh" Label="обновить" />
+
+        </CommandBar>
+    </Page.BottomAppBar>
+
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button  x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="201,297,0,0" VerticalAlignment="Top"/>
-        <TextBox Text="{x:Bind Path=Model.Test, Mode=TwoWay}" x:Name="textBox" HorizontalAlignment="Left" Margin="103,256,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <ProgressBar HorizontalAlignment="Left" Height="10" Margin="10,583,0,0" VerticalAlignment="Top" Width="340"/>
 
+        <Pivot ItemsSource="{Binding Cars}" Title="Автомобили" Margin="0,0,0,83">
+            <Pivot.HeaderTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}" />
+                </DataTemplate>
+            </Pivot.HeaderTemplate>
+            <Pivot.ItemTemplate>
+                <DataTemplate x:DataType="local:Car">
+                    <StackPanel>
+                        <TextBox Text="{x:Bind Path=Name, Mode=TwoWay}" />
+                        <TextBox Text="{x:Bind Path=LastName, Mode=TwoWay}" />
+                        <TextBox Text="{x:Bind Path=FirstName, Mode=TwoWay}" />
+                        <TextBox Text="{x:Bind Path=MiddleName, Mode=TwoWay}" />
+                        <TextBox Text="{x:Bind Path=Series, Mode=TwoWay}" />
+                        <TextBox Text="{x:Bind Path=Number, Mode=TwoWay}" />
+                    </StackPanel>
+                </DataTemplate>
+            </Pivot.ItemTemplate>
+        </Pivot>
     </Grid>
 </Page>

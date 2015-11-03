@@ -32,9 +32,9 @@ namespace GtDev.SpeedCamera
             appSettings.Values[Constants.StateKey] = JsonConvert.SerializeObject(DataContext);
         }
 
-        private void button_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private void AppBarButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            ((Model)DataContext).Cars.Add(new Car());
+            ((Model)DataContext).Cars.Add(new Car() { Name = "..." });
         }
     }
 }
