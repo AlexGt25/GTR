@@ -33,16 +33,11 @@ namespace GtDev.SpeedCamera
             appSettings.Values[Constants.StateKey] = JsonConvert.SerializeObject(DataContext);
         }
 
-        private void AppBarButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private void wvResult_DoubleTapped(object sender, Windows.UI.Xaml.Input.DoubleTappedRoutedEventArgs e)
         {
-            ((Model)DataContext).Cars.Add(new Car() { Name = "..." });
-            pCars.SelectedIndex = pCars.Items.Count - 1;
-        }
-
-        private void AppBarButton_Click_1(object sender, Windows.UI.Xaml.RoutedEventArgs e)
-        {
-            if (pCars.Items.Any())
-                ((Model)DataContext).Cars.RemoveAt(pCars.SelectedIndex);
+            ((WebView)sender).NavigateToString(
+"<html><body><h2>This is an HTML fragment</h2></body></html>");
         }
     }
 }
+

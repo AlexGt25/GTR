@@ -43,7 +43,7 @@ namespace GtDev.SpeedCamera
 #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)
             {
-                this.DebugSettings.EnableFrameRateCounter = false;
+                this.DebugSettings.EnableFrameRateCounter = true;
             }
 #endif
 
@@ -74,9 +74,6 @@ namespace GtDev.SpeedCamera
                 // parameter
                 rootFrame.Navigate(typeof(MainPage), e.Arguments);
             }
-
-            ((MainPage)rootFrame.Content).InitializeComponent();
-
             // Ensure the current window is active
             Window.Current.Activate();
         }

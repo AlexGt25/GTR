@@ -6,49 +6,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-    <Page.TopAppBar>
-        <CommandBar>
-            <AppBarButton Icon="Add" Label="добавить автомобиль" Click="AppBarButton_Click"/>
-            <AppBarButton Icon="Delete" Label="удалить автомобиль" Click="AppBarButton_Click_1" />
-            <AppBarButton Icon="Refresh" Label="обновить" />
-            <AppBarButton  Label="настройки" Icon="Edit" />
-        </CommandBar>
-    </Page.TopAppBar>
-
-    <Page.BottomAppBar>
-        <CommandBar>
-
-            <AppBarButton Icon="Add" Label="добавить автомобиль" Click="AppBarButton_Click"/>
-            <AppBarButton Icon="Delete" Label="удалить автомобиль" Click="AppBarButton_Click_1" />
-            <AppBarButton Icon="Refresh" Label="обновить" />
-            <AppBarButton  Label="настройки" Icon="Edit" />
-
-        </CommandBar>
-    </Page.BottomAppBar>
-
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ProgressBar Height="10" VerticalAlignment="Bottom" Margin="0,0,0,50"/>
+        <CheckBox x:Name="checkBox" Content="CheckBox" HorizontalAlignment="Left" Margin="10,235,0,0" VerticalAlignment="Top"/>
 
-        <Pivot x:Name="pCars" ItemsSource="{x:Bind Model.Cars}" Title="Автомобили" Margin="0,0,0,83">
-            <Pivot.HeaderTemplate>
-                <DataTemplate x:DataType="local:Car">
-                    <TextBlock Text="{x:Bind Name,Mode=OneWay}" />
-                </DataTemplate>
-            </Pivot.HeaderTemplate>
-            <Pivot.ItemTemplate>
-                <DataTemplate x:DataType="local:Car">
-                    <StackPanel>
-                        <WebView Source="https://www.tut.by/" MinWidth="256" MinHeight="256" />
-                        <TextBox Text="{x:Bind Name, Mode=TwoWay}" />
-                        <TextBox Text="{x:Bind LastName, Mode=TwoWay}" />
-                        <TextBox Text="{x:Bind FirstName, Mode=TwoWay}" />
-                        <TextBox Text="{x:Bind MiddleName, Mode=TwoWay}" />
-                        <TextBox Text="{x:Bind Series, Mode=TwoWay}" />
-                        <TextBox Text="{x:Bind Number, Mode=TwoWay}" />
-                    </StackPanel>
-                </DataTemplate>
-            </Pivot.ItemTemplate>
-        </Pivot>
     </Grid>
 </Page>

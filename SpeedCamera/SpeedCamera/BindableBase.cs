@@ -1,8 +1,6 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using Windows.Storage;
 
 namespace GtDev.SpeedCamera
 {

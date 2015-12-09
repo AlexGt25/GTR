@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Speed Camera")]
+[assembly: AssemblyTitle("SpeedCamera")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("GT Dev")]
-[assembly: AssemblyProduct("Speed Camera")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("SpeedCamera")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

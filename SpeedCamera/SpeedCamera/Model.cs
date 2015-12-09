@@ -1,15 +1,26 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace GtDev.SpeedCamera
 {
     public class Model : BindableBase
     {
+        public int SelectedCarIndex { get; set; }
+        public bool ProgressBarVisibility { get; set; }
+
         public Model()
         {
             cars.CollectionChanged += Cars_CollectionChanged;
             cars.Add(new Car());
+            RefreshCommand = new DelegateCommand(RefreshExecute);
+            AddCarCommand = new DelegateCommand(AddCarExecute);
+            RemoveCommand = new DelegateCommand(RemoveExecute);
         }
 
         private void Cars_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
@@ -21,6 +32,7 @@ namespace GtDev.SpeedCamera
                     ((Car)item).PropertyChanged += Model_PropertyChanged;
                 }
             }
+            this.OnPropertyChanged("Cars");
         }
 
         private void Model_PropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -28,6 +40,56 @@ namespace GtDev.SpeedCamera
             this.OnPropertyChanged("Cars");
         }
 
+        #region commands
+
+        public ICommand AddCarCommand { get; set; }
+
+        void AddCarExecute(object obj)
+        {
+            Car car = new Car { Name = "..." };
+            Cars.Add(car);
+            SelectedCarIndex = Cars.Count - 1;
+        }
+
+        public ICommand RemoveCommand { get; set; }
+
+        void RemoveExecute(object obj)
+        {
+            if (Cars.Count > SelectedCarIndex)
+                Cars.RemoveAt(SelectedCarIndex);
+        }
+        public ICommand RefreshCommand { get; set; }
+
+        void RefreshExecute(object obj)
+        {
+            ProgressBarVisibility = true;
+
+            List<Task<mvdgovbyServiceReference.GetExtResponse>> tasks = new List<Task<mvdgovbyServiceReference.GetExtResponse>>();
+
+            foreach (Car car in Cars)
+            {
+                Task<mvdgovbyServiceReference.GetExtResponse> task = Refresh(car);
+                tasks.Add(task);
+            }
+            Task.WaitAll(tasks.ToArray());
+            ProgressBarVisibility = false;
+        }
+
+        private async Task<mvdgovbyServiceReference.GetExtResponse> Refresh(Car car)
+        {
+            mvdgovbyServiceReference.AjaxSoapClient client = new mvdgovbyServiceReference.AjaxSoapClient();
+
+            //client.GetExtCompleted += client_GetExtCompleted;
+            return await client.GetExtAsync(Constants.GuidControl,
+                $"{car.LastName} {car.FirstName} {car.MiddleName}",
+                // "примачук александр викторович",
+                //"АВА",
+                car.Series,
+            //    "137435"
+                car.Number);
+        }
+
+        #endregion
         private ObservableCollection<Car> cars = new ObservableCollection<Car>();
         public ObservableCollection<Car> Cars
         {
@@ -131,7 +193,7 @@ namespace GtDev.SpeedCamera
         }
     }
 
-  
+
 
     //    public bool ParametersReady
     //    {

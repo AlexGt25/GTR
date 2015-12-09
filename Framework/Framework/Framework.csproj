@@ -7,8 +7,8 @@
     <ProjectGuid>{856776FE-AE1D-4177-8223-01E80613B86C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GTDev.Framework</RootNamespace>
-    <AssemblyName>GTDev.Framework</AssemblyName>
+    <RootNamespace>GtDev.Framework</RootNamespace>
+    <AssemblyName>GtDev.Framework</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>

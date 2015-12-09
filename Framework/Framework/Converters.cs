@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
 
-namespace GTDev.Framework
+namespace GtDev.Framework
 {
-
     public class BooleanConverter<T> : IValueConverter
     {
         public BooleanConverter(T trueValue, T falseValue)

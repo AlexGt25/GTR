@@ -4,20 +4,42 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{755CE26F-3130-4784-9650-959E25AD5F33}</ProjectGuid>
+    <ProjectGuid>{2F02968F-8F94-435B-B32E-71AF7BA8233F}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GtDev.SpeedCamera</RootNamespace>
     <AssemblyName>GtDev.SpeedCamera</AssemblyName>
-    <DefaultLanguage>ru</DefaultLanguage>
+    <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion>10.0.10240.0</TargetPlatformVersion>
+    <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
-    <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <PackageCertificateKeyFile>SpeedCamera_TemporaryKey.pfx</PackageCertificateKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <DebugSymbols>true</DebugSymbols>
@@ -65,29 +87,6 @@
     <Prefer32Bit>true</Prefer32Bit>
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\x86\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
-    <NoWarn>;2008</NoWarn>
-    <DebugType>full</DebugType>
-    <PlatformTarget>x86</PlatformTarget>
-    <UseVSHostingProcess>false</UseVSHostingProcess>
-    <ErrorReport>prompt</ErrorReport>
-    <Prefer32Bit>true</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
-    <OutputPath>bin\x86\Release\</OutputPath>
-    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
-    <Optimize>true</Optimize>
-    <NoWarn>;2008</NoWarn>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>x86</PlatformTarget>
-    <UseVSHostingProcess>false</UseVSHostingProcess>
-    <ErrorReport>prompt</ErrorReport>
-    <Prefer32Bit>true</Prefer32Bit>
-    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
-  </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
     <None Include="project.json" />
@@ -98,12 +97,10 @@
     </Compile>
     <Compile Include="BindableBase.cs" />
     <Compile Include="Constants.cs" />
-    <Compile Include="MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="DelegateCommand.cs" />
     <Compile Include="Model.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\ServiceReference\Reference.cs">
+    <Compile Include="Service References\mvdgovbyServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -114,62 +111,58 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <None Include="Properties\ServiceReferences.Designer.ClientConfig" />
-    <None Include="Service References\ServiceReference\Ajax.wsdl" />
-    <None Include="Service References\ServiceReference\GtDev.SpeedCamera.ServiceReference.AddObjectAjaxResponse.datasource">
+    <None Include="Service References\mvdgovbyServiceReference\Ajax.wsdl" />
+    <None Include="Service References\mvdgovbyServiceReference\GtDev.SpeedCamera.mvdgovbyServiceReference.AddObjectAjaxResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServiceReference\GtDev.SpeedCamera.ServiceReference.CheckPinGraphicsResponse.datasource">
+    <None Include="Service References\mvdgovbyServiceReference\GtDev.SpeedCamera.mvdgovbyServiceReference.CheckPinGraphicsResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServiceReference\GtDev.SpeedCamera.ServiceReference.CheckPinResponse.datasource">
+    <None Include="Service References\mvdgovbyServiceReference\GtDev.SpeedCamera.mvdgovbyServiceReference.CheckPinResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServiceReference\GtDev.SpeedCamera.ServiceReference.GetCacheResponse.datasource">
+    <None Include="Service References\mvdgovbyServiceReference\GtDev.SpeedCamera.mvdgovbyServiceReference.GetCacheResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServiceReference\GtDev.SpeedCamera.ServiceReference.GetExtResponse.datasource">
+    <None Include="Service References\mvdgovbyServiceReference\GtDev.SpeedCamera.mvdgovbyServiceReference.GetExtResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServiceReference\GtDev.SpeedCamera.ServiceReference.GetNewPinGraphicsResponse.datasource">
+    <None Include="Service References\mvdgovbyServiceReference\GtDev.SpeedCamera.mvdgovbyServiceReference.GetNewPinGraphicsResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServiceReference\GtDev.SpeedCamera.ServiceReference.GetNewPinResponse.datasource">
+    <None Include="Service References\mvdgovbyServiceReference\GtDev.SpeedCamera.mvdgovbyServiceReference.GetNewPinResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServiceReference\GtDev.SpeedCamera.ServiceReference.GetPhotoPagesResponse.datasource">
+    <None Include="Service References\mvdgovbyServiceReference\GtDev.SpeedCamera.mvdgovbyServiceReference.GetPhotoPagesResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServiceReference\GtDev.SpeedCamera.ServiceReference.GetResponse.datasource">
+    <None Include="Service References\mvdgovbyServiceReference\GtDev.SpeedCamera.mvdgovbyServiceReference.GetResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServiceReference\GtDev.SpeedCamera.ServiceReference.SaveForumResponse.datasource">
+    <None Include="Service References\mvdgovbyServiceReference\GtDev.SpeedCamera.mvdgovbyServiceReference.SaveForumResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServiceReference\GtDev.SpeedCamera.ServiceReference.SaveVoiteResponse.datasource">
+    <None Include="Service References\mvdgovbyServiceReference\GtDev.SpeedCamera.mvdgovbyServiceReference.SaveVoiteResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="SpeedCamera_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\ApplicationIcon.scale-200.png" />
-    <Content Include="Assets\IconicTileMediumLarge.png" />
-    <Content Include="Assets\IconicTileSmall.png" />
-    <Content Include="Assets\Square150x150Logo.scale-100.png" />
-    <Content Include="Assets\StoreLogo.scale-200.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
     <Content Include="Assets\Square150x150Logo.scale-200.png" />
     <Content Include="Assets\Square44x44Logo.scale-200.png" />
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
-    <None Include="Service References\ServiceReference\Reference.svcmap">
+    <None Include="Service References\mvdgovbyServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Service References\ServiceReference\configuration.svcinfo" />
-    <None Include="Service References\ServiceReference\configuration91.svcinfo" />
-    <None Include="Service References\ServiceReference\Ajax.disco" />
+    <None Include="Service References\mvdgovbyServiceReference\configuration.svcinfo" />
+    <None Include="Service References\mvdgovbyServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\mvdgovbyServiceReference\Ajax.disco" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -187,10 +180,22 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ServiceReference\" />
+    <WCFMetadataStorage Include="Service References\mvdgovbyServiceReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Framework\Framework\Framework.csproj">
+      <Project>{856776fe-ae1d-4177-8223-01e80613b86c}</Project>
+      <Name>Framework</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>SpeedCamera_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
